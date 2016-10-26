@@ -27,11 +27,12 @@ public class CarroServlet extends HttpServlet {
 
         String modeloCarro = request.getParameter("modeloCarro");
         String corDoCarro = request.getParameter("corDoCarro");
+        Date anoDoCarro = Date.valueOf(request.getParameter("anoDoCarro"));
         int quantosCavalos = Integer.parseInt(request.getParameter("quantosCavalos"));
         String acabamento = request.getParameter("acabamento");
         String comandoDeBordo = request.getParameter("comandoDeBordo");
         String arrosCarros = request.getParameter("arosCarros");
-        Date anoDoCarro = Date.valueOf(request.getParameter("anoDoCarro"));
+        
 
         CarroModel carrosModel = new CarroModel();
         carrosModel.setAcabamento(acabamento);
@@ -40,6 +41,7 @@ public class CarroServlet extends HttpServlet {
         carrosModel.setCorDoCarro(corDoCarro);
         carrosModel.setModeloCarro(modeloCarro);
         carrosModel.setQuantosCavalos(quantosCavalos);
+        carrosModel.setAnoCarro(anoDoCarro);
 
         try {
             CarroDao carroDao = new CarroDao();

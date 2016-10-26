@@ -25,16 +25,18 @@ public class CarroDao {
     }
     
     public void adicionaCarro(CarroModel carroModel) throws SQLException{
-        String sql = "INSERT INTO CARRO (MODELO_CARRO,COR_CARRO,QUANTOS_CAVALOS,ACABAMENTO_CARRO,COMANDO_DE_BORDO_CARRO,ARROS_DOS_CARROS, ANO_CARRO) VALUES (?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO CARRO (MODELO_CARRO,COR_CARRO,ANO_CARRO,QUANTOS_CAVALOS,ACABAMENTO_CARRO,COMANDO_DE_BORDO_CARRO,AROS_DOS_CARROS) VALUES (?,?,?,?,?,?,?)";
         try{
             stmt = conecta.prepareStatement(sql);
             stmt.setString(1, carroModel.getModeloCarro());
             stmt.setString(2, carroModel.getCorDoCarro());
-            stmt.setInt(3, carroModel.getQuantosCavalos());
-            stmt.setString(4, carroModel.getAcabamento());
-            stmt.setString(5, carroModel.getComandoDeBordo());
-            stmt.setString(6, carroModel.getArosCarros());
-            stmt.setDate(6, carroModel.getAnoCarro());
+            stmt.setDate(3, carroModel.getAnoCarro());
+            stmt.setInt(4, carroModel.getQuantosCavalos());
+            stmt.setString(5, carroModel.getAcabamento());
+            stmt.setString(6, carroModel.getComandoDeBordo());
+            stmt.setString(7, carroModel.getArosCarros());
+            stmt.execute();
+            stmt.close();
         } catch(SQLException e){
             System.out.println("Não foi possivel conectar a sua base " +e);
         }
@@ -45,9 +47,8 @@ public class CarroDao {
         try{
             stmt = conecta.prepareStatement(sql);
             rs = stmt.executeQuery();
-            while (rs.next()) {                
+            while (rs.next()){                
                 CarroModel carroModel1 = new CarroModel();
-                
                 carroModel1.setAcabamento(rs.getString("acabamento"));
                 carroModel1.setAnoCarro(rs.getDate("anoCarro"));
                 carroModel1.setArosCarros(rs.getString("arrosCarros"));
