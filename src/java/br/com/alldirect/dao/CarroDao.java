@@ -43,19 +43,20 @@ public class CarroDao {
     }
     public List<CarroModel> getLista() throws SQLException{
         List<CarroModel> carroModel = new ArrayList<>();
-        String sql = "SELECT * FROM CARRO";
+        String sql = "SELECT * FROM ordemservicoluan.carro";
         try{
             stmt = conecta.prepareStatement(sql);
             rs = stmt.executeQuery();
             while (rs.next()){                
                 CarroModel carroModel1 = new CarroModel();
-                carroModel1.setAcabamento(rs.getString("acabamento"));
-                carroModel1.setAnoCarro(rs.getDate("anoCarro"));
-                carroModel1.setArosCarros(rs.getString("arrosCarros"));
-                carroModel1.setComandoDeBordo(rs.getString("comandoDeBordo"));
-                carroModel1.setCorDoCarro(rs.getString("corDoCarro"));
-                carroModel1.setModeloCarro(rs.getString("modeloCarro"));
-                carroModel1.setQuantosCavalos(rs.getInt("QuantosCavalos"));
+                carroModel1.setAcabamento(rs.getString("ACABAMENTO_CARRO"));
+                carroModel1.setAnoCarro(rs.getDate("ANO_CARRO"));
+                carroModel1.setArosCarros(rs.getString("AROS_DOS_CARROS"));
+                carroModel1.setComandoDeBordo(rs.getString("COMANDO_DE_BORDO_CARRO"));
+                carroModel1.setCorDoCarro(rs.getString("COR_CARRO"));
+                carroModel1.setModeloCarro(rs.getString("MODELO_CARRO"));
+                carroModel1.setQuantosCavalos(rs.getInt("QUANTOS_CAVALOS"));
+                carroModel.add(carroModel1);
             }
             stmt.close();
             return  carroModel;
