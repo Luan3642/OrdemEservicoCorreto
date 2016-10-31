@@ -59,3 +59,11 @@ tr{
     text-align: center;
     padding-top: 25px;
 }
+.a{
+    color: white;
+    text-align: center;
+}
+footer{
+    background: #333;
+    color: #FFF;
+}

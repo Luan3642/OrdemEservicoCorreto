@@ -10,6 +10,8 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="newcss.css">
+        <link rel="shortcut icon" href="WEB-INF/car-icon.gif">
+        <link rel="stylesheet" href="dist/css/bootstrap.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
@@ -17,48 +19,54 @@
         <title>Cadastro de veiculos </title>
     </head>
     <body>
-        <div class="unico ">Cadastre seu carro</div>
+        <div class="row">
+        <c:import url="Cabecalho.jsp"/>
         <form class="form-horizontal" action="CarroServlet" method="GET">
             <div class="form-group ">
                 <label class="col-sm-2 control-label">Digite o modelo do carro</label>
                 <div class="col-sm-9">
-                    <input name="modeloCarro" type="text" class="form-control" placeholder="modelo do carro">
+                    <input name="modeloCarro" type="text" class="form-control" placeholder="Digite apenas letras">
                 </div>
             </div>
             <div class="form-group ">
                 <label   class="col-sm-2 control-label">Digite a cor do carro </label>
                 <div class="col-sm-9">
-                    <input name="corDoCarro" type="text" class="form-control"  placeholder="cor do carro">
+                    <select class="form-control" name="corDoCarro">
+                        <option>Branco gelo</option>
+                        <option>Azul </option>
+                        <option>Roxo</option>
+                        <option>Vermelho</option>
+                    </select>
                 </div>
             </div>
             <div class="form-group ">
                 <label   class="col-sm-2 control-label">Digite o ano do carro</label>
                 <div class="col-sm-9">
-                    <input type="date" name="anoDoCarro" class="form-control"  placeholder="Digite o ano do carro">
+                    <input type="date" name="anoDoCarro" class="form-control"  placeholder="Digite apenas números">
                 </div>
             </div>
             <div class="form-group ">
                 <label  class="col-sm-2 control-label">Quantos cavalos tem seu carro </label>
                 <div class="col-sm-9">
-                    <input  name="quantosCavalos" type="text" class="form-control"  placeholder="Digite os cavalos do carro">
+                    <input  name="quantosCavalos" type="text" class="form-control"  placeholder="Digite apenas números">
                 </div>
             </div>
             <div class="form-group ">
                 <label   class="col-sm-2 control-label">Digite como quer seu acabamento</label>
                 <div class="col-sm-9">
-                    <input  name="acabamento" type="text" class="form-control"  placeholder="Digite seu acabamento">
+                    <input  name="acabamento" type="text" class="form-control"  placeholder="Digite apenas letras">
                 </div>
             </div>
             <div class="form-group ">
                 <label    class="col-sm-2 control-label">Digite o nome do seu comando de bordo</label>
                 <div class="col-sm-9">
-                    <input name="comandoDeBordo" type="text" class="form-control" placeholder="Comando de bordo">
+                    <input name="comandoDeBordo" type="text" class="form-control" placeholder="Digite apenas letras">
                 </div>
             </div>
             <div class="form-group ">
                 <label   class="col-sm-2 control-label">Digite o aro do seu carro</label>
                 <div class="col-sm-9">
-                    <input  name="arosCarros" type="text" class="form-control"  placeholder="Aro do carro">
+                    <input  name="arosCarros" type="text" class="form-control"  placeholder="Digite letras e números">
                 </div>
             </div>
             <table>
@@ -67,5 +75,7 @@
                 </div>
             </table>
         </form>
+        </div>
+        <c:import url="Rodape.jsp"/>
     </body>
 </html>
